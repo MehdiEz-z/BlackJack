@@ -27,15 +27,17 @@ public class Carte {
         return hauteurs[hauteur - 1] + " " + couleurs[couleur - 1];
     }
 
-    public static List<Carte> construireJeuDeCartes(Carte carteDeDepart) {
-        List<Carte> jeuDeCartes = new ArrayList<>();
+    public static Carte[] construireJeuDeCartes(Carte carteDeDepart) {
+        Carte[] jeuDeCartes = new Carte[52]; //
 
         int hauteur = carteDeDepart.getHauteur();
         int couleur = carteDeDepart.getCouleur();
+        int index = 0;
 
         for (int c = couleur; c <= 4; c++) {
             for (int h = hauteur; h <= 13; h++) {
-                jeuDeCartes.add(new Carte(h, c));
+                jeuDeCartes[index] = new Carte(h, c);
+                index++;
             }
             hauteur = 1;
         }
