@@ -54,6 +54,30 @@ public class Carte {
         return new Object[]{carteExtraite, nouvellesCartes};
     }
 
+    public static Object[] tirer_une_carte(Carte[] cartes) {
+        int indiceAleatoire = (int) (Math.random() * cartes.length);
+        return extraire_ieme_carte(cartes, indiceAleatoire);
+    }
+
+    public static Carte[] melanger_jeu_cartes(Carte[] cartes) {
+        int n = cartes.length;
+        Carte[] jeuMelange = new Carte[n];
+
+        for (int i = 0; i < n; i++) {
+            jeuMelange[i] = cartes[i];
+        }
+
+        for (int i = n - 1; i > 0; i--) {
+            int j = (int) (Math.random() * (i + 1));
+
+            Carte temp = jeuMelange[i];
+            jeuMelange[i] = jeuMelange[j];
+            jeuMelange[j] = temp;
+        }
+
+        return jeuMelange;
+    }
+
 
 
 
