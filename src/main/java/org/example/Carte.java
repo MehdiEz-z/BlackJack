@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Carte {
     private final int hauteur;
@@ -12,13 +10,9 @@ public class Carte {
         this.couleur = couleur;
     }
 
-    public int getHauteur() {
-        return hauteur;
-    }
+    public int getHauteur() {return hauteur;}
 
-    public int getCouleur() {
-        return couleur;
-    }
+    public int getCouleur() {return couleur;}
 
     @Override
     public String toString() {
@@ -44,6 +38,23 @@ public class Carte {
 
         return jeuDeCartes;
     }
+
+    public static Object[] extraire_ieme_carte(Carte[] cartes, int indice) {
+        Carte[] nouvellesCartes = new Carte[cartes.length - 1];
+        Carte carteExtraite = cartes[indice];
+
+        int j = 0;
+        for (int i = 0; i < cartes.length; i++) {
+            if (i != indice) {
+                nouvellesCartes[j] = cartes[i];
+                j++;
+            }
+        }
+
+        return new Object[]{carteExtraite, nouvellesCartes};
+    }
+
+
 
 
 }
